@@ -1,5 +1,5 @@
 import React from 'react';
-import AllTodos from '../../Component/AllTodos';
+import AllTodos from '../../Component/All Todos/AllTodos';
 
 const Home = () => {
   return (

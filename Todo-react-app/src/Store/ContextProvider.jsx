@@ -13,7 +13,7 @@ const ContextProvider = (props) => {
         {
             "id": 2,
             "title": "Finish report",
-            "description": "Complete the sales report for Q1",
+            "description": "Complete the sales report for Q1 Complete the sales report for Q1 Complete the sales report for Q1",
             "completed": false
         },
         {

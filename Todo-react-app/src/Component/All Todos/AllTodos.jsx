@@ -1,6 +1,5 @@
-import React from 'react'
 import { useContext } from 'react';
-import ContextTodo from '../Store/ContextTodo';
+import ContextTodo from '../../Store/ContextTodo';
 import styles from './AllTodos.module.css';
 
 const AllTodos = () => {
@@ -15,10 +14,13 @@ const AllTodos = () => {
             {ctx.AllData.map((todo, index) => {
                 return (
                     <div key={todo.id} className={styles.todo}>
-                        <div className={styles.todoDetail}>
+                        <div className={styles.todoStart}>
                             <span className={styles.todo__id}>{todo.id}.</span>
                             <span className={styles.todo__title}>{todo.title}</span>
-                            <span className={styles.todo__description}>{todo.description}</span>
+                        </div>
+
+                        <div className={styles.todoDescription}>
+                            {todo.description}
                         </div>
 
                         <div className={styles.todoEnd}>
