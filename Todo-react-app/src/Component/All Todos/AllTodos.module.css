@@ -1,65 +1,91 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.h4 {
+  display: flex;
+  justify-content: center;
+  background: #787777;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: large;
+  line-height: normal;
+  letter-spacing: 2px;
+  color: #f0f0f0;
+  font-weight: bolder;
+}
+
+.todo {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  justify-content: space-between;
+  width: 55vw;
+  transition: width 0.5s ease-in-out;
+}
+
+.todoStart {
+  font-size: 18px;
+  margin-bottom: 5px;
+  display: flex;
+  width: 18vw;
+  margin-right: 5px;
+  align-items: center;
+}
+
+.todoDescription {
+  font-size: 14px;
+  color: #666;
+  width: 30vw;
+  margin: 0px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.todoEnd {
+  /* margin-left: 1rem; */
+  width: 1rem;
+  height: 1rem;
+}
+
+.todo__checkbox {
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 5px;
+}
+
+@media (max-width: 650px) {
+
+  .todo {
+    width: 80vw;
+    transition: width 0.5s ease-in-out;
   }
-  
-  .h4{
+
+  .todoStart {
+    font-size: 14px;
+    width: 45vw;
+    margin-right: 5px;
+    font-size: small;
+    font-weight: 600;
+    align-items: center;
+    justify-content: start;
+    padding-left: 0px;
+  }
+
+  .todoDate {
     display: flex;
     justify-content: center;
-    background: #787777;
-    padding: 1rem;
-    border-radius: 5px;
-    font-size: large;
-    line-height: normal;
-    letter-spacing: 2px;
-    color: #f0f0f0;
-    font-weight: bolder;
+    align-items: center;
+    font-size: small;
+    width: 25vw;
+    padding: 5px;
   }
-  
-  .todo {
-    display: flex;
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    justify-content: space-between;
-    width: 55vw;
-  }
-  
-  .todoStart {
-    font-size: 18px;
-    margin-bottom: 5px;
-    margin-right: 1rem;
-    display: flex;
-    width: 20vw;
-    margin-right: 5px;
-  }
-  
+
   .todoDescription {
-    font-size: 14px;
-    color: #666;
-    width: 30vw;
-    margin: 0px 10px;
+    display: none;
   }
-  
-  .todoEnd {
-    /* margin-left: 1rem; */
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .todo__checkbox {
-    cursor: pointer;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 5px;
-  }
-
-  @media (max-width: 650px) {
-    .todoStart {
-      font-size: 14px;
-      width: 25vw;
-      margin-right: 5px;
-    }
-  }
-  
+}

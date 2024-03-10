@@ -23,6 +23,10 @@ const AllTodos = () => {
                             {todo.description}
                         </div>
 
+                        <div className={styles.todoDate}>
+                            Deadline Date Task to be completed
+                        </div>
+
                         <div className={styles.todoEnd}>
                             <span><input type='checkbox' onChange={() => { handleCheck(todo.id) }} name={todo.id} className={styles.todo__checkbox}></input>
                             </span>

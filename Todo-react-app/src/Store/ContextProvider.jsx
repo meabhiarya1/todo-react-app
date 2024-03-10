@@ -29,6 +29,7 @@ const ContextProvider = (props) => {
             "completed": false
         }
     ]
+
     const [data, setData] = useState(initialData);
 
     const addData = (todo) => {
@@ -38,8 +39,12 @@ const ContextProvider = (props) => {
     }
 
     const checkData = (id) => {
-        let newData = data;
-        newData[id - 1].completed = true;
+        let newData = [...data];
+        if (newData[id - 1].completed) {
+            newData[id - 1].completed = false;
+        } else {
+            newData[id - 1].completed = true;
+        }
         setData(newData)
     }
 

@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+}
+
+.completeTodos {
+    margin: 15px;
+}
+
+@media (max-width: 650px) {
+
+    .main {
+        display: block;
+        width: 100%;
+        /* flex-direction: row; */
+    }
+}
