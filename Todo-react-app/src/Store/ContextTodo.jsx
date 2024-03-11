@@ -1,9 +1,12 @@
 import { createContext } from "react";
 
 const ContextTodo = createContext({
-    AllData: [],
-    addData: () => { },
-    checkData: () => { }
-})
+  AllData: [],
+  addData: () => {},
+  checkData: () => {},
+  deleteData: () => {},
+  markCompleteData: () => {},
+  notMarkCompleteData: () => {},
+});
 
 export default ContextTodo;

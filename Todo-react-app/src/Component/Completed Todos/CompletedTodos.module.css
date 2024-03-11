@@ -11,13 +11,13 @@
 .heading {
   display: flex;
   background: #258612;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 5px;
   font-size: large;
   color: #f0f0f0;
   font-weight: bold;
   margin-bottom: 5px;
-  margin-top: 10px;
+  margin-top: 0 !important;
   justify-content: center;
   align-items: center;
 }

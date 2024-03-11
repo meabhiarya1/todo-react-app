@@ -8,8 +8,21 @@ const AddTodo = () => {
   const ctx = useContext(ContextTodo);
 
   const handleSubmit = () => {
+    const idNext = ctx.AllData.map((todo) => {
+      return todo.length;
+    });
     // console.log(titleRef.current.value, descriptionRef.current.value, dateRef.current.value)
- 
+    let todo = {
+      id: idNext.length + 1,
+      title: titleRef.current.value,
+      description: descriptionRef.current.value,
+      date: dateRef.current.value,
+      completed: false,
+    };
+    ctx.addData(todo);
+    (titleRef.current.value = ""),
+    (descriptionRef.current.value = "")
+    // (dateRef.current.value = 0);
   };
 
   return (
@@ -34,7 +47,7 @@ const AddTodo = () => {
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Add Todo Here
+                  Add Todo Here...
                 </h1>
                 <button
                   type="button"
@@ -77,6 +90,7 @@ const AddTodo = () => {
                 <button
                   type="button"
                   class="btn btn-primary"
+                  data-bs-dismiss="modal"
                   onClick={handleSubmit}
                 >
                   Save

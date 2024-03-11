@@ -2,12 +2,13 @@ import React, { useContext, useEffect } from "react";
 import styles from "./CompletedTodos.module.css";
 import ContextTodo from "../../Store/ContextTodo";
 import CancelIcon from "@mui/icons-material/Cancel";
+import { pink } from '@mui/material/colors';
 
 const CompletedTodos = () => {
   const ctx = useContext(ContextTodo);
 
   const handleIcon = (id) => {
-    ctx.checkData(id);
+    ctx.notMarkCompleteData(id)
   };
 
   return (
@@ -22,7 +23,7 @@ const CompletedTodos = () => {
               </div>
 
               <div className={styles.inputDiv}>
-                <CancelIcon onClick={() => handleIcon(todo.id)} className={styles.cancel}/>
+                <CancelIcon onClick={() => handleIcon(todo.id)} sx={{ color: pink[500] }} className={styles.cancel} />
               </div>
             </div>
           );
