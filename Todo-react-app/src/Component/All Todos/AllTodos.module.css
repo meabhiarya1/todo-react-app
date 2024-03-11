@@ -29,9 +29,10 @@
 
 .todoStart {
   font-size: 18px;
+  font-weight: bold;
   margin-bottom: 5px;
   display: flex;
-  width: 18vw;
+  width: 25vw;
   margin-right: 5px;
   align-items: center;
 }
