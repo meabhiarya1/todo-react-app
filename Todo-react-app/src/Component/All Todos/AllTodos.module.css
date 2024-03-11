@@ -1,5 +1,5 @@
 .container {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@
   margin-bottom: 10px;
   border-radius: 5px;
   justify-content: space-between;
-  width: 55vw;
+  width: 30vw;
   transition: width 0.5s ease-in-out;
 }
 
@@ -43,12 +43,27 @@
   margin: 0px 10px;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
+}
+
+.edit {
+  cursor: pointer;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
 }
 
 .todoEnd {
-  /* margin-left: 1rem; */
+  display: flex;
+  margin-top: 1rem;
+  margin-left: 5px;
+  display: flex;
   width: 1rem;
   height: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .todo__checkbox {
@@ -58,10 +73,9 @@
   border-radius: 5px;
 }
 
-@media (max-width: 650px) {
-
+@media (max-width: 1100px) {
   .todo {
-    width: 80vw;
+    width: 60vw;
     transition: width 0.5s ease-in-out;
   }
 
@@ -87,5 +101,10 @@
 
   .todoDescription {
     display: none;
+  }
+
+  .edit {
+    /* margin: 1rem; */
+    margin: 0;
   }
 }
