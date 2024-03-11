@@ -14,7 +14,7 @@ const AllTodos = () => {
   };
 
   const handleEdit = (id) => {
-    ctx.deleteData(id);
+    ctx.editData(id)
   };
 
   const handleDelete = (id) => {

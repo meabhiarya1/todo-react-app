@@ -17,10 +17,6 @@ const Home = () => {
         <div className={styles.completeTodos}>
           <CompletedTodos />
         </div>
-
-        {/* <div>
-            <input type='date'></input>
-        </div> */}
       </div>
     </>
   );

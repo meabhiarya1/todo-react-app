@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ContextTodo from "./ContextTodo";
+import EditModal from "../Component/Edit Modal/EditModal";
 
 const ContextProvider = (props) => {
   const initialData = [
@@ -72,12 +73,20 @@ const ContextProvider = (props) => {
     setData(newData);
   };
 
+  const editData = (id) => {
+    const editTodo = data.filter((todo) => {
+      return todo.id === id;
+    })
+    {<EditModal editTodo={editTodo} />}
+  }
+
   const createData = {
     AllData: data,
     addData: addData,
     deleteData: deleteData,
     markCompleteData: markCompleteData,
     notMarkCompleteData: notMarkCompleteData,
+    editData: editData
   };
 
   return (
