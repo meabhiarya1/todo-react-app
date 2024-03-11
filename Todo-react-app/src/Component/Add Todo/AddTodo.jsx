@@ -13,7 +13,7 @@ const AddTodo = () => {
     });
     // console.log(titleRef.current.value, descriptionRef.current.value, dateRef.current.value)
     let todo = {
-      id: idNext.length + 1,
+      id: idNext.length,
       title: titleRef.current.value,
       description: descriptionRef.current.value,
       date: dateRef.current.value,
@@ -27,43 +27,43 @@ const AddTodo = () => {
 
   return (
     <>
-      <div class="my-5">
+      <div className="my-5">
         <button
           type="button"
-          class="btn btn-primary p-3"
+          className="btn btn-primary p-3"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
           Add Todo
         </button>
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
                   Add Todo Here...
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <input
                   type="text"
                   placeholder="Enter Title Here"
                   ref={titleRef}
                 ></input>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <input
                   type="text"
                   placeholder="Enter Description Here"
@@ -71,25 +71,25 @@ const AddTodo = () => {
                 ></input>
               </div>
 
-              <div class="modal-body">
-                <label class="mx-3 ">Date to be Completed: </label>
+              <div className="modal-body">
+                <label className="mx-3 ">Date to be Completed: </label>
                 <input
                   type="date"
-                  class="p-2 rounded-pill"
+                  className="p-2 rounded-pill"
                   ref={dateRef}
                 ></input>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Close
                 </button>
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   data-bs-dismiss="modal"
                   onClick={handleSubmit}
                 >

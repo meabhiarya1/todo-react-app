@@ -19,7 +19,7 @@ const CompletedTodos = () => {
           return (
             <div key={todo.id} className={styles.parentDiv}>
               <div className={styles.title}>
-                {todo.id}. {todo.title}
+                {todo.id + 1}. {todo.title}
               </div>
 
               <div className={styles.inputDiv}>

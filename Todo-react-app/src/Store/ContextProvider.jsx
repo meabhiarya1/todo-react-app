@@ -30,8 +30,6 @@ const ContextProvider = (props) => {
     },
   ];
 
-  // const initialData = [];
-
   const [data, setData] = useState(initialData);
 
   const addData = (todo) => {
@@ -54,27 +52,15 @@ const ContextProvider = (props) => {
 
   const notMarkCompleteData = (id) => {
     let newData = [...data];
-
-    if (newData[id]) {
-      newData[id].completed = false;
-      console.log(newData)
-      setData(newData);
-    } else {
-      const copyState=[]
-
-      setData([initialData[id]]);
-      
+    const index = newData.findIndex((item) => {
+      return item.id === id;
+    })
+    if (newData[index]) {
+      newData[index].completed = false;
+      setData((prev) => {
+        return prev = newData;
+      });
     }
-
-    // if (newData.length > 0) {
-
-    // } else {
-    // newData[id].completed = false;
-    // setData(newData);
-    console.log(data);
-    // }
-    //
-    // console.log(data);
   };
 
   const deleteData = (id) => {
