@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ContextTodo from '../../Store/ContextTodo';
 
-const EditModal = (props) => {
-    console.log(props.editTodo)
+const EditModal = () => {
+    const ctx = useContext(ContextTodo)
+    console.log("hello");
+    console.log(ctx.editTodo)
     return (<div>
-
+        {ctx.editTodo}
     </div>)
 }
 

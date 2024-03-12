@@ -1,0 +1,18 @@
+.modal input[type="text"],
+.modal input[type="date"] {
+    width: 100%;
+    /* Make inputs take up full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    /* Add spacing between input fields */
+}
+
+/* Label Styles (Optional) */
+.modal label {
+    display: block;
+    /* Make labels appear on separate lines */
+    margin-bottom: 5px;
+    font-weight: bold;
+}

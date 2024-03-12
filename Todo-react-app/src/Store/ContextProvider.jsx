@@ -32,6 +32,7 @@ const ContextProvider = (props) => {
   ];
 
   const [data, setData] = useState(initialData);
+  const [editTodo, setEditTodo] = useState([]);
 
   const addData = (todo) => {
     setData((prev) => {
@@ -73,11 +74,16 @@ const ContextProvider = (props) => {
     setData(newData);
   };
 
-  const editData = (id) => {
-    const editTodo = data.filter((todo) => {
-      return todo.id === id;
-    })
-    {<EditModal editTodo={editTodo} />}
+  const modifyDataHandler = (id, todo) => {
+    const { title, desc } = todo;
+    // console.log(id, todo);
+    const copiedData = [...data];
+
+    const index = copiedData.findIndex((item) => item.id === id);
+    copiedData[index].title = title;
+    copiedData[index].description = desc;
+    setData(copiedData)
+
   }
 
   const createData = {
@@ -86,7 +92,7 @@ const ContextProvider = (props) => {
     deleteData: deleteData,
     markCompleteData: markCompleteData,
     notMarkCompleteData: notMarkCompleteData,
-    editData: editData
+    modifyData: modifyDataHandler
   };
 
   return (

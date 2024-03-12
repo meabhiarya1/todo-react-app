@@ -7,7 +7,7 @@ const ContextTodo = createContext({
   deleteData: () => { },
   markCompleteData: () => { },
   notMarkCompleteData: () => { },
-  editData: () => { }
+  modifyData: () => { },
 });
 
 export default ContextTodo;
