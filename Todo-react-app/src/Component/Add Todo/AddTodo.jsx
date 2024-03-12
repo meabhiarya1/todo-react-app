@@ -8,7 +8,7 @@ const AddTodo = () => {
   const ctx = useContext(ContextTodo);
 
   const handleSubmit = () => {
-    const idNext = ctx.AllData.map((todo) => {
+    const idNext = ctx.AllData.map((todo, index) => {
       return todo.length;
     });
     // console.log(titleRef.current.value, descriptionRef.current.value, dateRef.current.value)
