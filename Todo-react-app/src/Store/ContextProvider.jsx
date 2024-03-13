@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ContextTodo from "./ContextTodo";
-import EditModal from "../Component/Edit Modal/EditModal";
 
 const ContextProvider = (props) => {
   const initialData = [
@@ -8,6 +7,7 @@ const ContextProvider = (props) => {
       id: 0,
       title: "Buy groceries",
       description: "Milk, eggs, bread, and fruits",
+      date: "",
       completed: false,
     },
     {
@@ -15,18 +15,21 @@ const ContextProvider = (props) => {
       title: "Finish report",
       description:
         "Complete the sales report for Q1 Complete the sales report for Q1 Complete the sales report for Q1",
+      date: "",
       completed: false,
     },
     {
       id: 2,
       title: "Call mom",
       description: "Wish her a happy birthday",
+      date: "",
       completed: false,
     },
     {
       id: 3,
       title: "Go to the gym",
       description: "Do cardio and strength training",
+      date: "",   
       completed: false,
     },
   ];
@@ -56,11 +59,11 @@ const ContextProvider = (props) => {
     let newData = [...data];
     const index = newData.findIndex((item) => {
       return item.id === id;
-    })
+    });
     if (newData[index]) {
       newData[index].completed = false;
       setData((prev) => {
-        return prev = newData;
+        return (prev = newData);
       });
     }
   };
@@ -75,16 +78,16 @@ const ContextProvider = (props) => {
   };
 
   const modifyDataHandler = (id, todo) => {
-    const { title, desc } = todo;
+    const { title, desc, date } = todo;
     // console.log(id, todo);
     const copiedData = [...data];
 
     const index = copiedData.findIndex((item) => item.id === id);
     copiedData[index].title = title;
     copiedData[index].description = desc;
-    setData(copiedData)
-
-  }
+    copiedData[index].date = date;
+    setData(copiedData);
+  };
 
   const createData = {
     AllData: data,
@@ -92,7 +95,7 @@ const ContextProvider = (props) => {
     deleteData: deleteData,
     markCompleteData: markCompleteData,
     notMarkCompleteData: notMarkCompleteData,
-    modifyData: modifyDataHandler
+    modifyData: modifyDataHandler,
   };
 
   return (

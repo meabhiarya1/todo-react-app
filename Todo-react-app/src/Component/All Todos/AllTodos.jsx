@@ -1,11 +1,9 @@
 import { useContext } from "react";
 import ContextTodo from "../../Store/ContextTodo";
 import styles from "./AllTodos.module.css";
-import EditIcon from "@mui/icons-material/Edit";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { pink } from "@mui/material/colors";
-import EditModal from "../Edit Modal/EditModal";
 import Modal from "../Modal/Modal";
 
 const AllTodos = () => {
@@ -33,9 +31,8 @@ const AllTodos = () => {
           <div className={styles.todoDate}>{todo.date}</div>
           <div className={styles.allIcons}>
             <div className={styles.edit}>
-              
+              <Modal editTodoId={todo.id} />
             </div>
-            <Modal editTodoId={todo.id} />
             <div className={styles.todoEnd}>
               <CheckCircleIcon
                 onClick={() => {
@@ -57,7 +54,7 @@ const AllTodos = () => {
         </div>
       );
     }
-  })
+  });
 
   return (
     <div className={styles.container}>
