@@ -31,7 +31,10 @@ const AllTodos = () => {
           <div className={styles.todoDate}>{todo.date}</div>
           <div className={styles.allIcons}>
             <div className={styles.edit}>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 696aaa0ff082d00632c39e5fd9ea64749151cfab
               <Modal editTodoId={todo.id} />
             </div>
             <div className={styles.todoEnd}>
@@ -55,7 +58,7 @@ const AllTodos = () => {
         </div>
       );
     }
-  })
+  });
 
   return (
     <div className={styles.container}>

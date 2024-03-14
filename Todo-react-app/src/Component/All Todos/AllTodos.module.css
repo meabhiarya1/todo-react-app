@@ -16,7 +16,7 @@
   font-weight: bolder;
 }
 
-.allIcons{
+.allIcons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,8 +75,8 @@
   align-items: center;
 }
 
-.todoDelete{
-  margin-left: 1rem;
+.todoDelete {
+  margin-left: 0.5rem;
   /* margin-top: 8px; */
   display: flex;
   justify-content: center;
@@ -90,6 +90,15 @@
   height: 1rem;
   border-radius: 5px;
 }
+
+.todoDate {
+  display: flex;
+  font-size: small;
+  justify-content: center;
+  align-items: center;
+  width: 10vw;
+}
+
 
 @media (max-width: 1100px) {
   .todo {
@@ -122,7 +131,24 @@
   }
 
   .edit {
+    margin-left: 0.5rem;
+  }
+}
 
-    margin-left: 1rem;
+@media (max-width: 400px) {
+  .todoStart {
+    /* font-size: 12px; */
+    width: 15vw;
+    /* margin-right: 5px; */
+    font-size: x-small;
+    font-weight: 600;
+    align-items: center;
+    justify-content: start;
+    padding-left: 0px;
+  }
+
+  .todoDate{
+    margin: 0;
+    font-size: xx-small;
   }
 }
