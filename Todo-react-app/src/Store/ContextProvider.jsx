@@ -1,80 +1,127 @@
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
 import ContextTodo from "./ContextTodo";
 
-const ContextProvider = (props) => {
-  const initialData = [
-    {
-      id: 0,
-      title: "Buy groceries",
-      description: "Milk, eggs, bread, and fruits",
-      date: "",
-      completed: false,
-    },
-    {
-      id: 1,
-      title: "Finish report",
-      description:
-        "Complete the sales report for Q1 Complete the sales report for Q1 Complete the sales report for Q1",
-      date: "",
-      completed: false,
-    },
-    {
-      id: 2,
-      title: "Call mom",
-      description: "Wish her a happy birthday",
-      date: "",
-      completed: false,
-    },
-    {
-      id: 3,
-      title: "Go to the gym",
-      description: "Do cardio and strength training",
-      date: "",   
-      completed: false,
-    },
-  ];
 
-  const [data, setData] = useState(initialData);
-  const [editTodo, setEditTodo] = useState([]);
+const initialState = [
+  {
+    id: 0,
+    title: "Buy groceries",
+    description: "Milk, eggs, bread, and fruits",
+    date: "",
+    completed: false,
+  },
+  {
+    id: 1,
+    title: "Finish report",
+    description:
+      "Complete the sales report for Q1 Complete the sales report for Q1 Complete the sales report for Q1",
+    date: "",
+    completed: false,
+  },
+  {
+    id: 2,
+    title: "Call mom",
+    description: "Wish her a happy birthday",
+    date: "",
+    completed: false,
+  },
+  {
+    id: 3,
+    title: "Go to the gym",
+    description: "Do cardio and strength training",
+    date: "",
+    completed: false,
+  },
+];
 
-  const addData = (todo) => {
-    setData((prev) => {
-      return [...prev, todo];
-    });
-  };
+const reducerFn = (state, action) => {
 
-  const markCompleteData = (id) => {
-    let newData = [...data];
-    newData.filter((todo, index) => {
-      if (todo.id !== id) {
+  if (action.type == "addTodo") {
+    return [...state, action.payload];
+  }
+
+  if (action.type == "markComplete") {
+    let newData = [...state];
+    return newData.filter((todo, index) => {
+      if (todo.id !== action.payload) {
         return todo;
       } else {
         return (todo.completed = true);
       }
     });
-    setData(newData);
-  };
+  }
 
-  const notMarkCompleteData = (id) => {
-    let newData = [...data];
+  if (action.type == "notMarkComplete") {
+    let newData = [...state];
     const index = newData.findIndex((item) => {
-      return item.id === id;
+      return item.id === action.payload;
     });
     if (newData[index]) {
       newData[index].completed = false;
-      setData((prev) => {
-        return (prev = newData);
-      });
+      return newData;
     }
-  };
+  }
 
-  const deleteData = (id) => {
-    const newData = data.filter((todo) => {
-      if (todo.id !== id) {
+  if (action.type == "delete") {
+    const newData = state.filter((todo) => {
+      if (todo.id !== action.payload) {
         return todo;
       }
     });
-    setData(newData);
+    return newData;
+  }
+}
+
+const ContextProvider = (props) => {
+  // const initialData = [
+  //   {
+  //     id: 0,
+  //     title: "Buy groceries",
+  //     description: "Milk, eggs, bread, and fruits",
+  //     date: "",
+  //     completed: false,
+  //   },
+  //   {
+  //     id: 1,
+  //     title: "Finish report",
+  //     description:
+  //       "Complete the sales report for Q1 Complete the sales report for Q1 Complete the sales report for Q1",
+  //     date: "",
+  //     completed: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Call mom",
+  //     description: "Wish her a happy birthday",
+  //     date: "",
+  //     completed: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Go to the gym",
+  //     description: "Do cardio and strength training",
+  //     date: "",
+  //     completed: false,
+  //   },
+  // ];
+
+  const [CurrentState, dispatch] = useReducer(reducerFn, initialState);
+  console.log(CurrentState)
+
+  const addData = (todo) => {
+    dispatch({ type: "addTodo", payload: todo })
+  };
+
+  const markCompleteData = (id) => {
+    dispatch({ type: "markComplete", payload: id })
+  };
+
+  const notMarkCompleteData = (id) => {
+    dispatch({ type: "notMarkComplete", payload: id })
+  };
+
+  const deleteData = (id) => {
+    dispatch({ type: "delete", payload: id })
   };
 
   const modifyDataHandler = (id, todo) => {
@@ -90,7 +137,7 @@ const ContextProvider = (props) => {
   };
 
   const createData = {
-    AllData: data,
+    AllData: CurrentState,
     addData: addData,
     deleteData: deleteData,
     markCompleteData: markCompleteData,
